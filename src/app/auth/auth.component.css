@@ -1,0 +1,35 @@
+.AUTH__container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+}
+
+.AUTH__form-container {
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 30px 30px;
+  box-shadow: 2px 2px 10px 4px #cccccc;
+}
+
+@media (max-width: 440px) {
+  .AUTH__container {
+    display: flex;
+  }
+
+  .AUTH__form-container {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .LOG__form,
+  .REG__form {
+    width: 200px;
+  }
+}

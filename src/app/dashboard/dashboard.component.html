@@ -1,0 +1,14 @@
+<div class="DB__container">
+  <nav>
+    <div class="DB__nav__container">
+      <a [routerLink]="['/dashboard/client-list']">Client Panel</a>
+        <p>
+          <span *ngIf="user" class="Hello__text">Witaj: {{user.name}}</span>
+          <button class="DB__logout-button" (click)="logout()" >Wyloguj</button>
+        </p>
+    </div>
+  </nav>
+  <div class="DB__content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

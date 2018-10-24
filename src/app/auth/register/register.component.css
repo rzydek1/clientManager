@@ -1,0 +1,97 @@
+.REG__form{
+  display: grid;
+  justify-content: center;
+}
+
+a {
+  color: #428c42;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+a:hover {
+  color: #36b03c;
+}
+
+label {
+  padding: 5px 0;
+  font-size: 1.3rem;
+}
+
+input {
+  width: 300px;
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: none;
+}
+
+input:focus {
+  border: 2px solid #a5cda5;
+	background-color: #e9f3e9;
+	color: #428c42;
+	box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+}
+
+input[type=checkbox] {
+  width: auto;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked {
+  box-shadow: none;
+}
+
+input[type=checkbox]:blur {
+  box-shadow: none;
+}
+
+.REG__button {
+	width: 300px;
+	background-color: #36b03c;
+	font-size:20px;
+	color: white;
+	padding: 15px 10px;
+	margin-top: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+  outline: none;
+}
+
+.REG__button:disabled {
+  background-color: #aaa;
+}
+
+.REG__button:focus {
+	box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+}
+
+.REG__span {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+.REG__span a {
+  color: #428c42;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.REG__span a:hover {
+  color: #36b03c;
+}
+
+@media (max-width: 440px) {
+  .REG__button, input {
+    width: 200px;
+  }
+}

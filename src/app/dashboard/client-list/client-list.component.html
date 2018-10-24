@@ -1,0 +1,63 @@
+<nav>
+  <span>Clients</span>
+  <div class="DB__content_nav--div">
+    <span>Bilans: {{balance}}$</span>
+    <button [routerLink]="['/dashboard/add-client']">Dodaj klienta</button>
+  </div>
+</nav>
+<table>
+  <thead>
+    <tr>
+      <ng-container *ngIf="!editTable" >
+        <th scope="col">Imię i nazwisko </th>
+        <th scope="col">Email</th>
+        <th scope="col">Bilans</th>
+        <th scope="col"></th>
+      </ng-container>
+      <ng-container *ngIf="editTable">
+          <th scope="col">Imię</th>
+          <th scope="col">Nazwisko</th>
+          <th scope="col">Email</th>
+          <th scope="col">Bilans</th>
+          <th scope="col"></th>
+        </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clientList; index as ind">
+      <ng-container *ngIf="client && !editMode[ind]">
+        <td data-label="Imię i nazwisko">
+          <div class="DB__content__list--client">{{client.clientName + ' ' + client.clientLastName}}</div>
+        </td>
+        <td data-label="Email">
+          <div class="DB__content__list--client">{{client.clientEmail}}</div>
+        </td>
+        <td data-label="Bilans">
+          <div class="DB__content__list--client">{{client.clientBalance}}$</div>
+        </td>
+        <td>
+          <div class="DB__content__list--client"><button (click)="editClient(ind)">Edytuj</button></div>
+        </td>
+        <td *ngIf="editTable"></td>
+      </ng-container>
+      <ng-container *ngIf="editMode[ind]" (ngSubmit)="updateClient()" [formGroup]="editClientForm">
+          <td data-label="Imię">
+            <input formControlName="name" type="text" name="name" required>
+          </td>
+          <td  data-label="nazwisko">
+            <input formControlName="lastName" type="text" name="lastName" required>
+          </td>
+          <td data-label="Email">
+            <input formControlName="email" type="email" name="email" required>
+          </td>
+          <td data-label="Bilans">
+            <input formControlName="balance" type="number" name="balance" required>
+          </td>
+          <td>
+            <button type="submit" [disabled]="editClientForm.invalid" (click)="updateClient(ind)">Zapisz</button>
+          </td>
+      </ng-container>
+      <div *ngIf="errMessage" class="errMessage">{{errMessage}}</div>
+    </tr>
+  </tbody>
+</table>

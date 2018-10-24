@@ -1,0 +1,16 @@
+<form (ngSubmit)="login(formData)" #formData='ngForm'>
+  <div class="LOG__form">
+    <div *ngIf="errMessage" class="errMessage">{{errMessage}}</div>
+    <label>E-mail</label>
+    <input ngModel type="email" name="email" required>
+
+    <label>Hasło</label>
+    <input ngModel type="password" name="password" required>
+
+    <button class="LOG__button" type="submit" [disabled]="formData.invalid">Zaloguj</button>
+
+    <span class="LOG__span">Nie masz jeszcze konta? <br>
+      <a [routerLink]="['/auth/register']" >Zarejestruj się!</a>
+    </span>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<div class="ADD__content">
+  <form (ngSubmit)="addClient()" [formGroup]="addClientForm">
+    <div class="ADD__form">
+
+      <div *ngIf="errMessage" class="errMessage">Niepoprawnie wypełniony formularz!</div>
+      <label for="name">Imię</label>
+      <input formControlName="name" type="text" name="name" required>
+
+      <label for="lastName">Nazwisko</label>
+      <input formControlName="lastName" type="text" name="lastName" required>
+
+      <label for="email">E-mail</label>
+      <input formControlName="email" type="email" name="email" required>
+
+      <label for="balance">Bilans</label>
+      <input formControlName="balance" type="number" name="balance" required>
+
+      <button type="submit" [disabled]="addClientForm.invalid">Dodaj klienta</button>
+    </div>
+  </form>
+</div>

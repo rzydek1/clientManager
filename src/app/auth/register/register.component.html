@@ -1,0 +1,26 @@
+<form (ngSubmit)="register()" [formGroup]="registerForm">
+  <div class="REG__form">
+
+    <label for="name">Imię</label>
+    <input formControlName="name" type="text" name="name" required>
+
+    <label for="lastName">Nazwisko</label>
+    <input formControlName="lastName" type="text" name="lastName" required>
+
+    <label for="email">E-mail</label>
+    <input formControlName="email" type="email" name="email" required>
+
+    <label for="password">Hasło</label>
+    <input formControlName="password" type="password" name="password" required>
+
+    <label>
+      <input formControlName="terms" class="REG__checkbox" type="checkbox" name="terms" required> Akceptuję <a [routerLink]="['/regulamin']">regulamin</a>
+    </label>
+
+    <button class="REG__button" type="submit" [disabled]="registerForm.invalid">Zarejestruj</button>
+
+    <span class="REG__span">Masz już konto? <br>
+      <a [routerLink]="['/auth/login']" >Zaloguj się!</a>
+    </span>
+  </div>
+</form>
